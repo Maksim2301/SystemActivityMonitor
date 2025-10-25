@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.systemactivitymonitor.controller.UserController">
+
+    <top>
+        <Label text="User Management"
+               style="-fx-font-size: 20px; -fx-padding: 10;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER" style="-fx-padding: 25;">
+            <Label text="Register" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="registerUsername" promptText="Username" prefWidth="200"/>
+            <PasswordField fx:id="registerPassword" promptText="Password" prefWidth="200"/>
+            <TextField fx:id="registerEmail" promptText="Email (optional)" prefWidth="200"/>
+            <Button text="Register" onAction="#registerUser"/>
+
+            <Separator style="-fx-padding: 10 0 10 0;"/>
+
+            <Label text="Login" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="loginUsername" promptText="Username" prefWidth="200"/>
+            <PasswordField fx:id="loginPassword" promptText="Password" prefWidth="200"/>
+            <Button text="Login" onAction="#loginUser"/>
+
+            <Separator style="-fx-padding: 10 0 10 0;"/>
+
+            <Label text="Change Password" style="-fx-font-weight: bold;"/>
+            <PasswordField fx:id="oldPassword" promptText="Old password" prefWidth="200"/>
+            <PasswordField fx:id="newPassword" promptText="New password" prefWidth="200"/>
+            <Button text="Change Password" onAction="#changePassword"/>
+
+            <Button text="Back to Main" onAction="#goBack" style="-fx-font-size: 13px;"/>
+
+            <Label fx:id="messageLabel" textFill="red" wrapText="true" prefWidth="300"/>
+        </VBox>
+    </center>
+</BorderPane>

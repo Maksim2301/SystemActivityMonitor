@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.systemactivitymonitor.controller.ReportsController">
+
+    <top>
+        <Label text="📑 Reports"
+               style="-fx-font-size: 20px; -fx-padding: 10;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+            <HBox spacing="10">
+                <Label text="Report Name:"/>
+                <TextField fx:id="reportNameField" promptText="Enter report name"/>
+            </HBox>
+
+            <HBox spacing="10">
+                <Label text="Start Date:"/>
+                <DatePicker fx:id="startDatePicker"/>
+                <Label text="End Date:"/>
+                <DatePicker fx:id="endDatePicker"/>
+            </HBox>
+
+            <Button text="📄 Generate Report" onAction="#generateReport" style="-fx-font-size: 14px;"/>
+            <Button text="🔍 View Reports" onAction="#showReports" style="-fx-font-size: 14px;"/>
+            <Button text="⬅ Back" onAction="#goBack" style="-fx-font-size: 13px;"/>
+
+            <TableView fx:id="reportsTable" prefWidth="600" prefHeight="250">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="nameColumn" text="Name" prefWidth="150"/>
+                    <TableColumn fx:id="periodColumn" text="Period" prefWidth="200"/>
+                    <TableColumn fx:id="cpuColumn" text="CPU Avg (%)" prefWidth="100"/>
+                    <TableColumn fx:id="ramColumn" text="RAM Avg (MB)" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <!-- ✅ ДОДАНО messageLabel -->
+            <Label fx:id="messageLabel"
+                   text="Status: Ready"
+                   style="-fx-text-fill: #2a73ff; -fx-font-size: 13px;"
+                   wrapText="true" />
+        </VBox>
+    </center>
+</BorderPane>

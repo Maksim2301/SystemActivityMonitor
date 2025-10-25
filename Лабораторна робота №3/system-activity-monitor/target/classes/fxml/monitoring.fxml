@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.systemactivitymonitor.controller.MonitoringController">
+
+    <top>
+        <Label text="📊 System Monitoring"
+               style="-fx-font-size: 20px; -fx-padding: 10;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding: 30;">
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Operating System:"/>
+                <Label fx:id="osLabel" text="N/A" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="CPU Load:"/>
+                <Label fx:id="cpuLabel" text="0 %" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="RAM Usage:"/>
+                <Label fx:id="ramLabel" text="0 MB" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Active Window:"/>
+                <Label fx:id="windowLabel" text="N/A" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Keyboard presses:"/>
+                <Label fx:id="keysLabel" text="0"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Mouse clicks:"/>
+                <Label fx:id="clicksLabel" text="0"/>
+            </HBox>
+
+            <Button text="🔁 Refresh Now" onAction="#updateStats" style="-fx-font-size: 14px;"/>
+            <Button text="⬅ Back to Main" onAction="#goBack" style="-fx-font-size: 13px;"/>
+        </VBox>
+    </center>
+</BorderPane>

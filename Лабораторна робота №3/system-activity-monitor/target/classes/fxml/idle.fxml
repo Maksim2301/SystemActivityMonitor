@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.systemactivitymonitor.controller.IdleController">
+
+    <top>
+        <Label text="🕒 Idle Tracker"
+               style="-fx-font-size: 20px; -fx-padding: 10; -fx-font-weight: bold;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 30;">
+
+            <Label fx:id="statusLabel"
+                   text="Статус: Онлайн"
+                   style="-fx-font-size: 16px; -fx-text-fill: green; -fx-font-weight: bold;"/>
+
+            <!-- ✅ Без <ToggleGroup/> — просто групуємо кнопки через посилання -->
+            <HBox spacing="25" alignment="CENTER">
+                <RadioButton text="Онлайн"
+                             fx:id="onlineRadio"
+                             toggleGroup="$modeGroup"
+                             selected="true"
+                             onAction="#setOnlineMode"/>
+
+                <RadioButton text="Офлайн"
+                             fx:id="offlineRadio"
+                             toggleGroup="$modeGroup"
+                             onAction="#setOfflineMode"/>
+            </HBox>
+
+            <Label fx:id="messageLabel"
+                   text="Очікування дії..."
+                   style="-fx-font-size: 14px; -fx-text-fill: #0033cc;"/>
+
+            <Button text="⬅ Назад"
+                    onAction="#goBack"
+                    style="-fx-font-size: 14px;"/>
+        </VBox>
+    </center>
+</BorderPane>
