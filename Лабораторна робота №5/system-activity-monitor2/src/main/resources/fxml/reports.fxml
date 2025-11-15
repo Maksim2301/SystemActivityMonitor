@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.systemactivitymonitor.controller.ReportsController">
+
+    <top>
+        <Label text="📊 Reports"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="12" alignment="CENTER" style="-fx-padding: 20;">
+
+            <!-- 🔹 Поля введення -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Report Name:"/>
+                <TextField fx:id="reportNameField" promptText="Enter report name" prefWidth="200"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Start Date:"/>
+                <DatePicker fx:id="startDatePicker"/>
+                <Label text="End Date:"/>
+                <DatePicker fx:id="endDatePicker"/>
+            </HBox>
+
+            <!-- 🔹 Кнопки дій -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Generate Report" onAction="#generateReport" style="-fx-font-size: 14px;"/>
+                <Button text="View All Reports" onAction="#showReports" style="-fx-font-size: 14px;"/>
+                <Button text="Filter by Period" onAction="#filterReportsByDate" style="-fx-font-size: 14px;"/>
+                <Button text="Delete Selected" onAction="#deleteReport"
+                        style="-fx-font-size: 14px; -fx-text-fill: red;"/>
+                <Button text="📊 Detailed Stats" onAction="#showDetailedStats"
+                        style="-fx-font-size: 14px; -fx-text-fill: #0078ff;"/>
+                <Button text="Back" onAction="#goBack" style="-fx-font-size: 13px;"/>
+            </HBox>
+
+            <!-- 🔹 Панель середніх показників -->
+            <TitledPane text="Average System Stats" expanded="true" prefWidth="950">
+                <VBox spacing="5" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+                    <Label fx:id="avgCpuLabel" text="⚙ CPU: —" style="-fx-font-size: 13px;"/>
+                    <Label fx:id="avgRamLabel" text="💾 RAM: —" style="-fx-font-size: 13px;"/>
+                    <Label fx:id="uptimeAvgLabel" text="⏱ Average Uptime: —" style="-fx-font-size: 13px;"/>
+                </VBox>
+            </TitledPane>
+
+            <!-- 🧩 Панель із відсотками використання програм -->
+            <TitledPane text="Applications Usage Percent" expanded="false" prefWidth="950">
+                <VBox spacing="5" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+                    <ListView fx:id="appUsageList" prefHeight="150">
+                        <placeholder>
+                            <Label text="No application usage data available"/>
+                        </placeholder>
+                    </ListView>
+                </VBox>
+            </TitledPane>
+
+            <!-- 🔹 Список звітів -->
+            <TitledPane text="User Reports" expanded="true" prefWidth="950">
+                <VBox spacing="5" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+                    <ListView fx:id="reportsList" prefHeight="350">
+                        <placeholder>
+                            <Label text="No reports available"/>
+                        </placeholder>
+                    </ListView>
+                </VBox>
+            </TitledPane>
+
+            <!-- 🔹 Повідомлення -->
+            <Label fx:id="messageLabel"
+                   text="Status: Ready"
+                   style="-fx-text-fill: #2a73ff; -fx-font-size: 13px;"
+                   wrapText="true"/>
+        </VBox>
+    </center>
+</BorderPane>

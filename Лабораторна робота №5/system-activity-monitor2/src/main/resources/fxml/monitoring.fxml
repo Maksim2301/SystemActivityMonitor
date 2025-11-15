@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.systemactivitymonitor.controller.MonitoringController">
+
+    <top>
+        <Label text="🖥️ System Monitoring (Real-Time)"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding: 25;">
+
+            <!-- 🔹 Системна інформація -->
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Operating System:"/>
+                <Label fx:id="osLabel" text="N/A" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="CPU Load:"/>
+                <Label fx:id="cpuLabel" text="0 %" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="RAM Usage:"/>
+                <Label fx:id="ramLabel" text="0 MB" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Active Window:"/>
+                <Label fx:id="windowLabel" text="N/A" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Keyboard presses:"/>
+                <Label fx:id="keysLabel" text="0" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Mouse clicks:"/>
+                <Label fx:id="clicksLabel" text="0" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Mouse moves:"/>
+                <Label fx:id="movesLabel" text="0" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="System Uptime:"/>
+                <Label fx:id="uptimeLabel" text="0h 0m" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Disk Space:"/>
+                <Label fx:id="diskLabel" text="0/0 GB" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- 🔘 Кнопки дій -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="startButton"
+                        text="▶️ Start"
+                        onAction="#startMonitoring"
+                        style="-fx-font-size: 14px; -fx-background-color: #2e8b57; -fx-text-fill: white;"/>
+
+                <Button fx:id="stopButton"
+                        text="⏹ Stop"
+                        onAction="#stopMonitoring"
+                        style="-fx-font-size: 14px; -fx-background-color: #d9534f; -fx-text-fill: white;"/>
+<!--                <Button fx:id="retryButton"-->
+<!--                        text="🔁 Повторити"-->
+<!--                        onAction="#retryMonitoring"-->
+<!--                        style="-fx-font-size: 14px; -fx-background-color: #f0ad4e; -fx-text-fill: white;"/>-->
+                <Button text="🔄 Update Now"
+                        onAction="#updateNow"
+                        style="-fx-font-size: 14px; -fx-background-color: #0275d8; -fx-text-fill: white;"/>
+
+                <Button text="⬅ Back to Main"
+                        onAction="#goBack"
+                        style="-fx-font-size: 13px;"/>
+            </HBox>
+
+            <!-- 📢 Повідомлення -->
+            <Label fx:id="statusLabel"
+                   text="Monitoring stopped."
+                   style="-fx-font-size: 13px; -fx-text-fill: #0066cc;"
+                   wrapText="true"/>
+        </VBox>
+    </center>
+</BorderPane>

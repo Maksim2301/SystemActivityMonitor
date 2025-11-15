@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.systemactivitymonitor.controller.MainController">
+
+    <top>
+        <VBox alignment="CENTER">
+            <Label text="🖥️ System Activity Monitor"
+                   style="-fx-font-size: 20px; -fx-padding: 5; -fx-font-weight: bold;"/>
+            <Label fx:id="guestLabel"
+                   text=""
+                   style="-fx-text-fill: #777; -fx-font-size: 12px;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="CENTER" style="-fx-padding: 30;">
+            <Button text="User Panel"
+                    onAction="#openUserPanel"
+                    style="-fx-font-size: 16px; -fx-pref-width: 250;"/>
+            <Button text="Idle Tracker"
+                    onAction="#openIdlePanel"
+                    style="-fx-font-size: 16px; -fx-pref-width: 250;"/>
+            <Button text="Monitoring"
+                    onAction="#openMonitoringPanel"
+                    style="-fx-font-size: 16px; -fx-pref-width: 250;"/>
+            <Button text="Reports"
+                    onAction="#openReportsPanel"
+                    style="-fx-font-size: 16px; -fx-pref-width: 250;"/>
+            <Button text="Exit"
+                    onAction="#exitApp"
+                    style="-fx-font-size: 14px; -fx-text-fill: red;"/>
+        </VBox>
+    </center>
+</BorderPane>
